@@ -1,0 +1,1 @@
+Como não vou usar o heroku e o Amazon S3, não vou instalar o django_s3_folder_storage
