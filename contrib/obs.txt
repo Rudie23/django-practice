@@ -1,1 +1,4 @@
-Como não vou usar o heroku e o Amazon S3, não vou instalar o django_s3_folder_storage
+
+# Heroku e Amazon
+Como não vou usar o heroku e o Amazon S3, não vou instalar o django_s3_folder_storage,
+nem o DISABLE_COLLECSTATIC ($ heroku config:set DISABLE_COLLECSTATIC) e nem a lib Collectfast
