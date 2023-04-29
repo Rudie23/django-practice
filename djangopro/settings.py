@@ -32,6 +32,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast permite separar as v
 
 # Application definition
 
+AUTH_USER_MODEL = 'base.UserModified'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
