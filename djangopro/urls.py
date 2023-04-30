@@ -19,12 +19,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-
-from djangopro.base.views import home
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', include('djangopro.base.urls')),
 ]
 
 if settings.DEBUG:
