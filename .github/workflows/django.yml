@@ -1,0 +1,50 @@
+name: Django
+
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15.2
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports: [ '5432:5432' ]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.11.3
+        architecture: x64
+        cache: 'pip'
+
+    - name: Copying configurations
+      run: |
+          cp contrib/env-sample .env 
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements-dev.txt
+
+    - name: Run flake8
+      uses: py-actions/flake8@v1
+      with:
+        checkName: 'flake8_py3'
+
+    - name: Test with pytest
+      run: |
+        pytest djangopro --cov=djangopro
