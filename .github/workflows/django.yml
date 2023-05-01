@@ -10,7 +10,7 @@ jobs:
 
   build:
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: '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'
 
     runs-on: ubuntu-latest
 
