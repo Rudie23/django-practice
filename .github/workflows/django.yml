@@ -30,7 +30,6 @@ jobs:
       with:
         python-version: 3.11.3
         architecture: x64
-        cache: 'pip'
 
     - name: Copying configurations
       run: |
