@@ -178,3 +178,6 @@ pyrightconfig.json
 # Files
 staticfiles
 mediafiles
+
+# postgres files for local development
+.pgdata
