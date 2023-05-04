@@ -22,6 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djangopro.base.urls')),
+    path('videos/', include('djangopro.videos.urls')),
 ]
 
 if settings.DEBUG:
