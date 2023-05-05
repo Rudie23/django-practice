@@ -7,7 +7,8 @@ from djangopro.videos.models import Video
 
 
 def index(request):
-    return render(request, 'videos/index.html')
+    videos = Video.objects.order_by('creation').all()
+    return render(request, 'videos/index.html', context={'videos': videos})
 
 
 def video(request, slug):

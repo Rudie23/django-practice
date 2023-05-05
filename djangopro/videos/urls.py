@@ -6,5 +6,5 @@ app_name = 'videos'
 
 urlpatterns = [
     path('<slug:slug>', video, name='video'),
-    path('index', index, name='index'),
+    path('', index, name='index'),
 ]
