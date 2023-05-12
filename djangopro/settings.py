@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast permite separar as variaveis por vírgula
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast, from decouple, allows to separate variables by comma
 
 # Application definition
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djangopro.base',
     'djangopro.videos',
+    'djangopro.modules',
 
 ]
 
@@ -152,7 +153,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
-# Configuração do ambiente de desenvolvimento
+# Configuration of local environment
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
