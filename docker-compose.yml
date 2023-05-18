@@ -3,7 +3,7 @@ version: "3.9"
 services:
   database:
     container_name: djangopro_database
-    image: postgres
+    image: postgres:15.3
     restart: always
     volumes:
       - ./.pgdata:/var/lib/postgresql/data
