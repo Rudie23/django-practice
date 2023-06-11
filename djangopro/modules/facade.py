@@ -11,7 +11,7 @@ def list_modules_orderly() -> List[Module]:
     return list(Module.objects.order_by('order').all())
 
 
-def encontrar_modulo(slug: str) -> Module:
+def find_module(slug: str) -> Module:
     return Module.objects.get(slug=slug)
 
 

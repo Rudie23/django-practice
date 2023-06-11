@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djangopro.base.urls')),
     path('videos/', include('djangopro.videos.urls')),
+    path('modules/', include('djangopro.modules.urls')),
 ]
 
 if settings.DEBUG:
