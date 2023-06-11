@@ -8,7 +8,7 @@ def list_modules_orderly() -> List[Module]:
     Sorted modules by titles
     :return:
     """
-    return list(Module.objects.order_by('title').all())
+    return list(Module.objects.order_by('order').all())
 
 
 def encontrar_modulo(slug: str) -> Module:
