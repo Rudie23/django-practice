@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'djangopro.base',
     'djangopro.videos',
     'djangopro.modules',
+    'ordered_model',
 
 ]
 
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'djangopro.modules.context_processors.sort_modules',
             ],
         },
     },
