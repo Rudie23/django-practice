@@ -26,6 +26,7 @@ class Lesson(OrderedModel):
     slug = models.SlugField(unique=True)
     module = models.ForeignKey('Module', on_delete=models.PROTECT)
     order_with_respect_to = 'module'
+    vimeo_id = models.CharField(max_length=36)
 
     class Meta(OrderedModel.Meta):
         pass

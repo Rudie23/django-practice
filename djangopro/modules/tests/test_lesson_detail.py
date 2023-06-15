@@ -24,3 +24,7 @@ def resp(client, lesson):
 
 def test_lesson_title(resp, lesson: Lesson):
     assert_contains(resp, lesson.title)
+
+
+def test_vimeo(resp, lesson: Lesson):
+    assert_contains(resp, f'src="https://player.vimeo.com/video/{ lesson.vimeo_id }')
