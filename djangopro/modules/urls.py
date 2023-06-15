@@ -6,6 +6,6 @@ app_name = 'modules'
 
 urlpatterns = [
     path('<slug:slug>', detail, name='detail'),
-    path('/lesson/<slug:slug>', lesson, name='lesson'),
+    path('lesson/<slug:slug>', lesson, name='lesson'),
 
 ]
