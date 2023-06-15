@@ -1,6 +1,6 @@
 from typing import List
 
-from djangopro.modules.models import Module
+from djangopro.modules.models import Module, Lesson
 
 
 def list_modules_orderly() -> List[Module]:
@@ -17,6 +17,10 @@ def find_module(slug: str) -> Module:
 
 def lessons_ordered(module: Module):
     return list(module.lesson_set.order_by('order').all())
+
+
+def find_lesson(slug):
+    return Lesson.objects.select_related('module').get(slug=slug)
 
 # def lista_aulas_de_modulo_ordenadas(module: Module):
 #     return list(module.aula_set.order_by('order').all())

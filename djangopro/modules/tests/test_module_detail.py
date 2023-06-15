@@ -37,3 +37,8 @@ def test_public(resp, module: Module):
 def test_lesson_titles(resp, lessons):
     for lesson in lessons:
         assert_contains(resp, lesson.title)
+
+
+def test_lesson_links(resp, lessons):
+    for lesson in lessons:
+        assert_contains(resp, lesson.get_absolute_url())
