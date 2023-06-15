@@ -15,6 +15,13 @@
                     <dt>Description</dt>
                     <dd>{{ module.description }}</dd>
                 </dl>
+                <h2>Lessons</h2>
+                <ol>
+                    {% for lesson in lessons %}
+                        <li>{{ lesson.title }}</li>
+                    {% endfor %}
+
+                </ol>
             </div>
         </div>
     </div>

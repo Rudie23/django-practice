@@ -7,4 +7,5 @@ from djangopro.modules import facade
 
 def detail(request, slug):
     module = facade.find_module(slug)
-    return render(request, 'modules/module_detail.html', {'module': module})
+    lessons = facade.lessons_ordered(module)
+    return render(request, 'modules/module_detail.html', {'module': module, 'lessons': lessons})
