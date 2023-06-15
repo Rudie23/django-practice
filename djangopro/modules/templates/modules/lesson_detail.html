@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Video{% endblock %}
+{% block description %}Video Page{% endblock description %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mt-4 mb-3">{{ lesson.title | default:"No title" }}</h1>
+            <iframe src="https://player.vimeo.com/lesson/{{ lesson.vimeo_id }}" width="640" height="564"
+                    allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+{% endblock body %}
