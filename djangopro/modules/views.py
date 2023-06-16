@@ -6,8 +6,8 @@ from djangopro.modules import facade
 # Create your views here.
 
 def detail(request, slug):
-    module = facade.find_module(slug)
-    lessons = facade.lessons_ordered(module)
+    module = facade.search_module(slug)
+    lessons = facade.list_lessons_of_modules_sorted(module)
     return render(request, 'modules/module_detail.html', {'module': module, 'lessons': lessons})
 
 
