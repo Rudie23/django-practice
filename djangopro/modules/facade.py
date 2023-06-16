@@ -15,7 +15,9 @@ def search_module(slug: str) -> Module:
     return Module.objects.get(slug=slug)
 
 
-# Django will create an attribute in the side 1 of its relationship (Module) with N (Lessons), therefore it will be created a realition between many to one
+# Django will create an attribute in the side 1 of its relationship (Module) with N (Lessons),
+# therefore it will be created a realition between many to one.
+# Using o lesson_set, you can access all modules' lessons
 def list_lessons_of_modules_sorted(module: Module):
     return list(module.lesson_set.order_by('order').all())
 
