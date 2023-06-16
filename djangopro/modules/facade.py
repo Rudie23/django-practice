@@ -11,29 +11,19 @@ def list_modules_orderly() -> List[Module]:
     return list(Module.objects.order_by('order').all())
 
 
-def find_module(slug: str) -> Module:
+def search_module(slug: str) -> Module:
     return Module.objects.get(slug=slug)
 
 
-def lessons_ordered(module: Module):
+# Django will create an attribute in the side 1 of its relationship (Module) with N (Lessons), therefore it will be created a realition between many to one
+def list_lessons_of_modules_sorted(module: Module):
     return list(module.lesson_set.order_by('order').all())
 
 
+# O select_related só funciona quando você está no lado N do relacionameno e quer fazer o join com o lado 1 do relacionamento
 def find_lesson(slug):
     return Lesson.objects.select_related('module').get(slug=slug)
 
-# def lista_aulas_de_modulo_ordenadas(module: Module):
-#     return list(module.aula_set.order_by('order').all())
-
-
-# def encontrar_aula(slug):
-#     return Aula.objects.select_related('modulo').get(slug=slug)
-#
-#
-# # O select_related só funciona quando você está no lado N do relacionameno e quer fazer o join com o lado 1 do
-# # relacionamento
-#
-#
 # def listar_modulos_com_aulas():
 #     aulas_ordenadas = Aula.objects.order_by('order')
 #     return Module.objects.order_by('order').prefetch_related(Prefetch
