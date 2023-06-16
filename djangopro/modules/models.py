@@ -5,7 +5,7 @@ from ordered_model.models import OrderedModel
 
 # Create your models here.
 
-class Module(OrderedModel):
+class Module(OrderedModel):  # Relation one with N relations (Lesson)
     title = models.CharField(max_length=64)
     public = models.TextField()
     description = models.TextField()
@@ -24,7 +24,7 @@ class Module(OrderedModel):
 class Lesson(OrderedModel):
     title = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
-    module = models.ForeignKey('Module', on_delete=models.PROTECT)
+    module = models.ForeignKey('Module', on_delete=models.PROTECT)  # Many
     order_with_respect_to = 'module'
     vimeo_id = models.CharField(max_length=36)
 
