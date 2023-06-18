@@ -36,6 +36,10 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast, from decouple, allo
 
 AUTH_USER_MODEL = 'base.UserModified'
 
+# Set up ipython and django-extensions to get better my shell
+# In terminal, run the command python manage.py shell_plus
+# I also can run python manage.py shell_plus --print-sql, to show the queries;
+# thus I can see the SQL generated to send to DB
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'djangopro.videos',
     'djangopro.modules',
     'ordered_model',
+    'django_extensions',
 
 ]
 
