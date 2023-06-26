@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'djangopro.base',
     'djangopro.videos',
     'djangopro.modules',
+    'djangopro._class',
     'ordered_model',
     'django_extensions',
 

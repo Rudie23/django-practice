@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('djangopro.base.urls')),
     path('videos/', include('djangopro.videos.urls')),
     path('modules/', include('djangopro.modules.urls')),
+    path('class/', include('djangopro._class.urls')),
 ]
 
 if settings.DEBUG:
