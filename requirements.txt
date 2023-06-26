@@ -24,7 +24,7 @@ packaging==23.1
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
-pluggy==1.0.0
+pluggy==1.2.0
 prompt-toolkit==3.0.38
 psycopg2-binary==2.9.6
 ptyprocess==0.7.0
@@ -32,12 +32,12 @@ pure-eval==0.2.2
 pycodestyle==2.10.0
 pyflakes==3.0.1
 Pygments==2.15.1
-pytest==7.3.2
+pytest==7.4.0
 pytest-cov==4.1.0
 pytest-django==4.5.2
 python-decouple==3.8
 requests==2.31.0
-sentry-sdk==1.25.1
+sentry-sdk==1.26.0
 six==1.16.0
 sqlparse==0.4.4
 stack-data==0.6.2

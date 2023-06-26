@@ -1,5 +1,7 @@
 from typing import List
 
+from django.db.models import Prefetch
+
 from djangopro.modules.models import Module, Lesson
 
 
@@ -23,8 +25,10 @@ def list_lessons_of_modules_sorted(module: Module):
 
 
 # O select_related só funciona quando você está no lado N do relacionameno e quer fazer o join com o lado 1 do relacionamento
+# The select_related will fix the N+1 select issue.
 def find_lesson(slug):
     return Lesson.objects.select_related('module').get(slug=slug)
+
 
 # def listar_modulos_com_aulas():
 #     aulas_ordenadas = Aula.objects.order_by('order')
@@ -38,3 +42,11 @@ def find_lesson(slug):
 # # módulo, depois ele vai fazer uma Query para buscar as aulas.
 # #
 # # o to_attrs contém o nome do atributo a ser utilizado pelo modulo que vai conter o resultado
+
+# If you want to access the side 1 besides the N, you must use prefetch_related
+def sort_modules_with_lessons():
+    sorted_lessons = Lesson.objects.order_by('order')
+    return Module.objects.order_by('order').prefetch_related(Prefetch
+                                                             ('lesson_set', queryset=sorted_lessons,
+
+                                                              to_attr='lessons')).all()

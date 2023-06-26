@@ -14,3 +14,8 @@ def detail(request, slug):
 def lesson(request, slug):
     lesson = facade.find_lesson(slug)
     return render(request, 'modules/lesson_detail.html', {'lesson': lesson})
+
+
+def index(request):
+    ctx = {'modules': facade.sort_modules_with_lessons()}
+    return render(request, 'modules/index.html', ctx)
