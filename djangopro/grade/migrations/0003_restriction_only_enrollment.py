@@ -8,16 +8,16 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('_class', '0002_creation_enrollment'),
+        ('grade', '0002_creation_enrollment'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
             name='enrollment',
-            options={'ordering': ['_class', 'date']},
+            options={'ordering': ['grade', 'date']},
         ),
         migrations.AlterUniqueTogether(
             name='enrollment',
-            unique_together={('user', '_class')},
+            unique_together={('user', 'grade')},
         ),
     ]

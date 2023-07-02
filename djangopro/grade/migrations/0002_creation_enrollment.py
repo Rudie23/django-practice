@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('_class', '0001_initial'),
+        ('grade', '0001_initial'),
     ]
 
     operations = [
@@ -18,13 +18,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('_class', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='_class.class')),
+                ('grade', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='grade.class')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='class',
             name='students',
-            field=models.ManyToManyField(through='_class.Enrollment', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(through='grade.Enrollment', to=settings.AUTH_USER_MODEL),
         ),
     ]

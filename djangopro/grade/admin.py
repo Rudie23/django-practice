@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from djangopro._class.models import Class
+from djangopro.grade.models import Class
 
 
 # Register your models here.

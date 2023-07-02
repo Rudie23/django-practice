@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <title>{% block title %}Home{% endblock title %}</title>
+    <title>{% block title %}Home{% endblock title %}</title>
 
     <meta name="description" content="Testing my Django skills">
     <meta name="author" content="Diego">
@@ -23,27 +23,50 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
+
         <a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto">
 
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                    aria-expanded="false">
                     Modules
                 </a>
                 <ul class="dropdown-menu">
-
                     {% for module in MODULES %}
                         <li><a class="dropdown-item" href="{{ module.get_absolute_url }}">{{ module.title }}</a></li>
                     {% endfor %}
-
                 </ul>
 
             </ul>
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav ms-auto">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        {{ user.first_name }}
+                    </a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <a type="button" class="btn btn-danger" href="{% url 'logout' %}">Log out</a>
+                        </div>
+
+                    </div>
+                </ul>
+            {% else %}
+                <div>
+                    <ul class="navbar-nav ms-auto">
+                        <a type="button" class="btn btn-light" href="{% url 'login' %}">Sign in</a>
+                    </ul>
+                </div>
+            {% endif %}
+
 
         </div>
     </div>
