@@ -36,6 +36,9 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast, from decouple, allo
 
 AUTH_USER_MODEL = 'base.UserModified'
 
+LOGIN_REDIRECT_URL = '/modules/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Set up ipython and django-extensions to get better my shell
 # In terminal, run the command python manage.py shell_plus
 # I also can run python manage.py shell_plus --print-sql, to show the queries;
@@ -50,7 +53,7 @@ INSTALLED_APPS = [
     'djangopro.base',
     'djangopro.videos',
     'djangopro.modules',
-    'djangopro._class',
+    'djangopro.grade',
     'ordered_model',
     'django_extensions',
 

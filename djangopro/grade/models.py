@@ -18,12 +18,12 @@ class Class(models.Model):
 class Enrollment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    _class = models.ForeignKey(Class, on_delete=models.CASCADE)
+    grade = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     # With class Meta, you can restrict a creation of enrollment to once time
     class Meta:
-        unique_together = [['user', '_class']]
-        ordering = ['_class', 'date']
+        unique_together = [['user', 'grade']]
+        ordering = ['grade', 'date']
 
     def __str__(self):
         return self.user

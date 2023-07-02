@@ -21,10 +21,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include('djangopro.base.urls')),
     path('videos/', include('djangopro.videos.urls')),
     path('modules/', include('djangopro.modules.urls')),
-    path('class/', include('djangopro._class.urls')),
+    path('class/', include('djangopro.grade.urls')),
 ]
 
 if settings.DEBUG:

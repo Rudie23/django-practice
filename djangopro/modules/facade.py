@@ -18,32 +18,21 @@ def search_module(slug: str) -> Module:
 
 
 # Django will create an attribute in the side 1 of its relationship (Module) with N (Lessons),
-# therefore it will be created a realition between many to one.
+# therefore it will be created a relation between many to one.
 # Using o lesson_set, you can access all modules' lessons
 def list_lessons_of_modules_sorted(module: Module):
     return list(module.lesson_set.order_by('order').all())
 
 
-# O select_related só funciona quando você está no lado N do relacionameno e quer fazer o join com o lado 1 do relacionamento
-# The select_related will fix the N+1 select issue.
+# relacionamento The select_related will fix the N+1 select issue. It just works when come from the side N and wants
+# to make a join in relationship
 def find_lesson(slug):
     return Lesson.objects.select_related('module').get(slug=slug)
 
 
-# def listar_modulos_com_aulas():
-#     aulas_ordenadas = Aula.objects.order_by('order')
-#     return Module.objects.order_by('order').prefetch_related(Prefetch
-#                                                              ('aula_set', queryset=aulas_ordenadas,
-#
-#                                                               to_attr='aulas')).all()
-#
-# # Quando você sai do lado 1 do relacionamento, e quer acessar o lado n do relacionameno você usa o prefetch_related.
-# Ele não vai fazer um join no BD, ele vai fazer uma Query para buscar os elementos respectivos ao lado 1, neste caso o
-# # módulo, depois ele vai fazer uma Query para buscar as aulas.
-# #
-# # o to_attrs contém o nome do atributo a ser utilizado pelo modulo que vai conter o resultado
-
-# If you want to access the side 1 besides the N, you must use prefetch_related
+# If you want to access the side 1 besides the N, you must use prefetch_related. It will not do a join, but a Query
+# to search respective elements from side 1
+# to_attrs attribute the name of Query that will contain the result.
 def sort_modules_with_lessons():
     sorted_lessons = Lesson.objects.order_by('order')
     return Module.objects.order_by('order').prefetch_related(Prefetch

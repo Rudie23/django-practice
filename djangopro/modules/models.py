@@ -5,7 +5,7 @@ from ordered_model.models import OrderedModel
 
 # Create your models here.
 
-class Module(OrderedModel):  # Module has Relation one with Lesson N relations
+class Module(OrderedModel):  # Module has Relation side one with Lesson N relations
     title = models.CharField(max_length=64)
     public = models.TextField()
     description = models.TextField()
