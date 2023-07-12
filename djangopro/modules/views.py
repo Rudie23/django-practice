@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from djangopro.modules import facade
@@ -11,6 +12,7 @@ def detail(request, slug):
     return render(request, 'modules/module_detail.html', {'module': module, 'lessons': lessons})
 
 
+@login_required
 def lesson(request, slug):
     lesson = facade.find_lesson(slug)
     return render(request, 'modules/lesson_detail.html', {'lesson': lesson})
