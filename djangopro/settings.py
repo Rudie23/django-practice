@@ -36,6 +36,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast, from decouple, allo
 
 AUTH_USER_MODEL = 'base.UserModified'
 
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/modules/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -44,19 +45,18 @@ LOGOUT_REDIRECT_URL = '/'
 # I also can run python manage.py shell_plus --print-sql, to show the queries;
 # thus I can see the SQL generated to send to DB
 INSTALLED_APPS = [
+    'djangopro.base',
+    'djangopro.videos',
+    'djangopro.modules',
+    'djangopro.grade',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangopro.base',
-    'djangopro.videos',
-    'djangopro.modules',
-    'djangopro.grade',
     'ordered_model',
     'django_extensions',
-
 ]
 
 MIDDLEWARE = [
@@ -89,6 +89,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangopro.wsgi.application'
+
+# Set up Email
+EMAIL_BACKEND = config("EMAIL_BACKEND")
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
