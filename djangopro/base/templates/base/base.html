@@ -11,15 +11,56 @@
 	<meta name="description" content="Testing my Django skills">
 	<meta name="author" content="Diego">
 
-	{#    <link rel="icon", type="image/png" href="{% static 'img/<nome_da_img' %}">#}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.js' %}"></script>
+
 	{#    <img src="{% static '<pasta>/<nome_da_img' %}" alt="random photo" class="img-thumbnail-float mr"/>#}
 
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="https://www.shockwaveradio.com.br/" target="_blank">News</a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Modules
+						</a>
+						<ul class="dropdown-menu dropdown-menu-dark">
+							{% for module in MODULES %}
+								<li>
+									<a class="dropdown-item" href="{{ module.get_absolute_url }}">{{ module.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-4 text-end">
+			<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
+			<a type="button" class="btn btn-warning me-2">Sign-up</a>
+		</div>
+	</nav>
+
+
+{% block content %}{% endblock %}
+{% block registration_login %}
+	
+{% endblock %}
 
 </body>
 </html>

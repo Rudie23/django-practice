@@ -13,3 +13,7 @@
     flex: 0 10 auto;
     width: auto;
 }
+
+padding {
+    background-color: white;
+}
