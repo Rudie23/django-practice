@@ -1,1 +1,15 @@
- Empty CSS file for your own CSS
+
+#navbar-end-mine {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#items-nav-end-mine {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    flex: 0 10 auto;
+    width: auto;
+}
