@@ -21,46 +21,62 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="https://www.shockwaveradio.com.br/" target="_blank">News</a>
-					</li>
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="https://www.shockwaveradio.com.br/"
+						 target="_blank">News</a>
+				</li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Modules
-						</a>
-						<ul class="dropdown-menu dropdown-menu-dark">
-							{% for module in MODULES %}
-								<li>
-									<a class="dropdown-item" href="{{ module.get_absolute_url }}">{{ module.title }}</a>
-								</li>
-							{% endfor %}
-						</ul>
-					</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Modules
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						{% for module in MODULES %}
+							<li>
+								<a class="dropdown-item" href="{{ module.get_absolute_url }}">{{ module.title }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	{% if user.is_authenticated %}
+		<div class="text-end me-4">
+			<ul class="navbar-nav me-2">
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{{ user.first_name }}
+				</a>
+
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item btn-danger" href="{% url 'logout' %}">Logout</a></li>
 				</ul>
-			</div>
+			</li>
+			</ul>
 		</div>
+	{% else %}
 		<div class="col-md-4 text-end">
-			<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
-			<a type="button" class="btn btn-warning me-2">Sign-up</a>
-		</div>
-	</nav>
+		<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
+		<a type="button" class="btn btn-warning me-2">Sign-up</a>
+	</div>
+	{% endif %}
+
+</nav>
 
 
 {% block content %}{% endblock %}
-{% block registration_login %}
-	
-{% endblock %}
+{% block registration_login %}{% endblock %}
 
 </body>
 </html>
