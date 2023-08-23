@@ -4,14 +4,6 @@
 {% block title %}Login{% endblock title %}
 {% block registration_login %}
 
-	{% if messages %}
-		{% for message in messages %}
-			<div class="alert alert-warning alert-dismissible fade show" role="alert">
-				{{ message }}
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>
-		{% endfor %}
-	{% endif %}
 
 	<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
 			 id="modalSignin">

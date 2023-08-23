@@ -21,6 +21,7 @@
 
 </head>
 <body>
+
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
@@ -55,24 +56,39 @@
 		<div class="text-end me-4">
 			<ul class="navbar-nav me-2">
 				<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					{{ user.first_name }}
-				</a>
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						{{ user.first_name }}
+					</a>
 
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item btn-danger" href="{% url 'logout' %}">Logout</a></li>
-				</ul>
-			</li>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item btn-danger" href="{% url 'logout' %}">Logout</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	{% else %}
 		<div class="col-md-4 text-end">
-		<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
-		<a type="button" class="btn btn-warning me-2">Sign-up</a>
-	</div>
+			<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
+			<a type="button" class="btn btn-warning me-2" href="{% url 'base:register' %}">Sign-up</a>
+		</div>
 	{% endif %}
 
 </nav>
+
+<div class="container-sm text-center mt-3">
+	<div class="row justify-content-md-auto">
+		<div class="col-md-auto">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ message }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>
 
 
 {% block content %}{% endblock %}
