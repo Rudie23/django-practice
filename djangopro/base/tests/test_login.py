@@ -33,8 +33,8 @@ def test_login_redirect(response_post):
     assert response_post.status_code == 302
 
 
-def test_login_redirect_page(resp_post):
-    assert resp_post.url == reverse('modules:index')
+def test_login_redirect_page(response_post):
+    assert response_post.url == reverse('modules:index')
 
 
 @pytest.fixture
