@@ -5,6 +5,9 @@ DATABASE_URL=postgres://postgres:postgres@localhost/testdb
 INTERNAL_IPS=127.0.0.1
 SENTRY_DSN=
 
+LANGUAGE_CODE='en'
+TIME_ZONE='America/Sao_Paulo'
+
 # Set up Email
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 EMAIL_HOST=localhost
