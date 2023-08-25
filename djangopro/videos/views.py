@@ -1,16 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
-from djangopro.videos.models import Video
+from djangopro.videos import facade
 
 
 # Create your views here.
 
 
 def index(request):
-    videos = Video.objects.order_by('creation').all()
+    videos = facade.list_videos()
     return render(request, 'videos/index.html', context={'videos': videos})
 
 
 def video(request, slug):
-    video = get_object_or_404(Video, slug=slug)
-    return render(request, 'videos/videos.html', context={'video': video})
+    video_obj = facade.get_video_by_slug(slug)
+    return render(request, 'videos/videos.html', context={'video': video_obj})
