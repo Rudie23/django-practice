@@ -14,6 +14,6 @@
     width: auto;
 }
 
-padding {
-    background-color: white;
+.shine:hover {
+    background-color: #198754;
 }

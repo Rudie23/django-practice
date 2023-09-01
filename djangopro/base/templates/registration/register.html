@@ -15,12 +15,13 @@
               <form method="POST" action="{% url 'base:register' %}">
 								{% csrf_token %}
                 <div class="form-outline mb-4">
-                  <input name="first_name" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input name="first_name" type="text" id="form3Example1cg" class="form-control form-control-lg"
+												 autofocus/>
                   <label class="form-label" for="form3Example1cg">Your First Name</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input name="email" type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input name="email" type="email" id="form3Example3cg" class="form-control form-control-lg"/>
                   <label class="form-label" for="form3Example3cg">Your Email</label>
                 </div>
 
@@ -48,9 +49,7 @@
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'base:login' %}"
                     class="fw-bold text-body"><u>Login here</u></a></p>
-
               </form>
-
             </div>
           </div>
         </div>

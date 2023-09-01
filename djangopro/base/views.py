@@ -1,10 +1,10 @@
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse
 
-from djangopro.base.tests.forms import UserForm
+from djangopro.base.forms import UserForm
 
 
 # Create your views here.
@@ -33,8 +33,8 @@ def register_user(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
 
-            # redirect to a new URL:
             login(request, user)
+            # redirect to a new URL:
             return HttpResponseRedirect(reverse('base:home'))
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -55,5 +55,5 @@ def login_user(request):
         else:
             messages.error(request, "There was an error logging in, try again...")
             # Return an 'invalid login' error message.
-            return redirect('base:login')
+            return HttpResponseRedirect(reverse('base:login'))
     return render(request, 'registration/login.html', {})
