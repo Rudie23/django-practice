@@ -46,7 +46,6 @@ LOGOUT_REDIRECT_URL = '/'
 # thus I can see the SQL generated to send to DB
 INSTALLED_APPS = [
     'djangopro.base',
-    'djangopro.videos',
     'djangopro.modules',
     'djangopro.grade',
     'django.contrib.admin',

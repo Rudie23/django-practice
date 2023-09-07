@@ -7,6 +7,8 @@ from djangopro.base.models import User
 class UserForm(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
+    password1 = forms.PasswordInput()
+    password2 = forms.PasswordInput()
 
     class Meta:
         model = User

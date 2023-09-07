@@ -45,7 +45,7 @@ def login_user(request):
         email = request.POST["email"]
         password = request.POST["password"]
         user = authenticate(request, email=email, password=password)
-        if user is not None:
+        if user:
             # Redirect to a success page.
             login(request, user)
             return HttpResponseRedirect(reverse('modules:index'))

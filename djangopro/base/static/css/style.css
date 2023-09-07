@@ -17,3 +17,8 @@
 .shine:hover {
     background-color: #198754;
 }
+
+.custom-element {
+  color: black;
+  background-color: white;
+}

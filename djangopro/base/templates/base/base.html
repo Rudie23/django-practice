@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="{% url 'base:home' %}">Home</a>
+		<a class="navbar-brand ms-2" href="{% url 'base:home' %}">Home</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -68,8 +68,8 @@
 		</div>
 	{% else %}
 		<div class="col-md-4 text-end">
-			<a type="button" class="btn btn-outline-light me-2" href="{% url 'login' %}">Login</a>
-			<a type="button" class="btn btn-warning me-2 shine" href="{% url 'base:register' %}">Sign-up</a>
+			<a type="button" class="btn custom-element shine me-2" href="{% url 'login' %}">Login</a>
+			<a type="button" class="btn btn-primary shine me-3 " href="{% url 'base:register' %}">Sign-up</a>
 		</div>
 	{% endif %}
 </nav>
