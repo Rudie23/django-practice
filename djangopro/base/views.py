@@ -29,9 +29,6 @@ def register_user(request):
             # dictionary. This data will have been nicely converted into Python types for you. In the contact form
             # example above, cc_myself will be a boolean value. Likewise, fields such as IntegerField and FloatField
             # convert values to a Python int and float respectively.
-            first_name = form.cleaned_data['first_name']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
 
             login(request, user)
             # redirect to a new URL:

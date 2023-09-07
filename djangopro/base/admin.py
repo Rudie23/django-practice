@@ -19,12 +19,12 @@ from django.core.exceptions import PermissionDenied
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
-from djangopro.base.models import UserModified
+from djangopro.base.models import User
 
 csrf_protect_m = method_decorator(csrf_protect)
 
 
-@admin.register(UserModified)
+@admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     add_form_template = "admin/auth/user/add_form.html"
     change_user_password_template = None

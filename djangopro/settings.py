@@ -34,7 +34,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  # cast, from decouple, allo
 
 # Application definition
 
-AUTH_USER_MODEL = 'base.UserModified'
+AUTH_USER_MODEL = 'base.User'
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/modules/'

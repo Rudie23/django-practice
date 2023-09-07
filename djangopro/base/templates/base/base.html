@@ -72,23 +72,23 @@
 			<a type="button" class="btn btn-warning me-2 shine" href="{% url 'base:register' %}">Sign-up</a>
 		</div>
 	{% endif %}
-
 </nav>
 
-<div class="container-sm text-center mt-3">
-	<div class="row justify-content-md-auto">
-		<div class="col-md-auto">
-			{% if messages %}
-				{% for message in messages %}
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						{{ message }}
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				{% endfor %}
-			{% endif %}
-		</div>
-	</div>
-</div>
+{% if messages %}
+		{% for message in messages %}
+				<div class="container-sm text-center mt-3">
+						<div class="row justify-content-md-auto">
+								<div class="col-md-auto">
+										<div class="alert alert-warning alert-dismissible fade show" role="alert">
+												{{ message }}
+												<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+										</div>
+								</div>
+						</div>
+				</div>
+		{% endfor %}
+{% endif %}
+
 
 
 {% block content %}{% endblock %}
