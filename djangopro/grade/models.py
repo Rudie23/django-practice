@@ -11,9 +11,6 @@ class Class(models.Model):
     end = models.DateField()
     students = models.ManyToManyField(get_user_model(), through='Enrollment')
 
-    def __repr__(self):
-        return self.name
-
     def __str__(self):
         return self.name
 
@@ -27,9 +24,3 @@ class Enrollment(models.Model):
     class Meta:
         unique_together = [['user', 'grade']]
         ordering = ['grade', 'date']
-
-    def __str__(self):
-        return self.user
-
-    def __repr__(self):
-        return self.user

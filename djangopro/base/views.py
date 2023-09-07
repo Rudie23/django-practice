@@ -48,7 +48,7 @@ def login_user(request):
         if user:
             # Redirect to a success page.
             login(request, user)
-            return HttpResponseRedirect(reverse('modules:index'))
+            return HttpResponseRedirect(reverse('base:home'))
         else:
             messages.error(request, "There was an error logging in, try again...")
             # Return an 'invalid login' error message.

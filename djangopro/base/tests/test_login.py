@@ -7,7 +7,7 @@ from djangopro.django_assertions import assert_contains, assert_not_contains
 
 @pytest.fixture
 def response(client, db):
-    return client.get(reverse('login'))
+    return client.get(reverse('base:login'))
 
 
 def test_login_form_page(response):
@@ -43,7 +43,7 @@ def resp_home(client, db):
 
 
 def test_button_available(resp_home):
-    assert_contains(resp_home, 'Login')
+    assert_contains(resp_home, 'Sign in')
 
 
 @pytest.fixture
@@ -56,7 +56,7 @@ def test_button_unavailable(resp_home_user_logged):
 
 
 def test_link_login_unavailable(resp_home_user_logged):
-    assert_not_contains(resp_home_user_logged, reverse('login'))
+    assert_not_contains(resp_home_user_logged, reverse('base:login'))
 
 
 def test_button_logout_available(resp_home_user_logged):

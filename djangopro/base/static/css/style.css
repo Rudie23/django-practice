@@ -18,6 +18,10 @@
     background-color: #198754;
 }
 
+.red:hover {
+    background-color: red;
+}
+
 .custom-element {
   color: black;
   background-color: white;

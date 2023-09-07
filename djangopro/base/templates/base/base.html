@@ -23,7 +23,7 @@
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #343a40">
-	<div class="container-fluid">
+	<div class="container-fluid ms-2">
 		<a class="navbar-brand ms-2" href="{% url 'base:home' %}">Home</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<ul class="navbar-nav me-auto mb-lg-0">
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="https://www.shockwaveradio.com.br/"
 						 target="_blank">News</a>
@@ -60,16 +60,16 @@
 						{{ user.first_name }}
 					</a>
 
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item btn-danger" href="{% url 'logout' %}">Logout</a></li>
+					<ul class="dropdown-menu red mt-md-2">
+						<li><a class="dropdown-item red" href="{% url 'logout' %}">Logout</a></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 	{% else %}
 		<div class="col-md-4 text-end">
-			<a type="button" class="btn custom-element shine me-2" href="{% url 'login' %}">Login</a>
-			<a type="button" class="btn btn-primary shine me-3 " href="{% url 'base:register' %}">Sign-up</a>
+			<a type="button" class="btn custom-element shine me-2" href="{% url 'login' %}">Sign in</a>
+			<a type="button" class="btn btn-primary shine me-3 " href="{% url 'base:register' %}">Sign up</a>
 		</div>
 	{% endif %}
 </nav>
