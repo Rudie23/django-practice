@@ -1,12 +1,13 @@
 import pytest
 from model_bakery import baker
-# from djangopro.modules import facade
+from djangopro.modules import facade
 from djangopro.modules.models import Module
 
 
 @pytest.fixture
-def modules(db):
-    return [baker.make(Module, title=s) for s in 'Before After'.split()]
+def modules(transactional_db):
+    return (baker.make(Module, title=s) for s in 'Before After'.split())
+
 
 # Not working
 # def test_sorted_modules(modules):

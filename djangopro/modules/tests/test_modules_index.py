@@ -54,8 +54,8 @@ def test_lesson_titles(resp, lessons: List[Lesson]):
 def test_lessons_url(resp, lessons: List[Lesson]):
     for lesson in lessons:
         assert_contains(resp, lesson.get_absolute_url())
-#
-#
-# def test_lesson_links(resp, lessons):
-#     for lesson in lessons:
-#         assert_contains(resp, lesson.get_absolute_url())
+
+
+def test_lesson_links(resp, lessons):
+    for lesson in lessons:
+        assert_contains(resp, lesson.get_absolute_url())

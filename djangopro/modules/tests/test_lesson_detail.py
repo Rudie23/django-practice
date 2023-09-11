@@ -42,4 +42,4 @@ def resp_not_logged(client, lesson):
 
 def test_not_logged_redirect(resp_not_logged):
     assert resp_not_logged.status_code == 302
-    assert resp_not_logged.url.startswith(reverse('login'))
+    assert resp_not_logged.url.startswith(reverse('base:login'))
