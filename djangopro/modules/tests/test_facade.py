@@ -1,11 +1,10 @@
 import pytest
 from model_bakery import baker
-from djangopro.modules import facade
 from djangopro.modules.models import Module
 
 
 @pytest.fixture
-def modules(transactional_db):
+def modules(db):
     return (baker.make(Module, title=s) for s in 'Before After'.split())
 
 
